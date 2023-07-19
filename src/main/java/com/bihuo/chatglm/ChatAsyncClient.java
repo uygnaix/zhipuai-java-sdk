@@ -21,14 +21,8 @@ import java.util.ArrayList;
  * @author Grok42
  */
 
-@Getter
-@Setter
 @SuperBuilder
-@AllArgsConstructor
-@NoArgsConstructor
 public class ChatAsyncClient extends ChatBaseClient{
-
-    private String test;
     public ChatAsyncClient init() {
         return (ChatAsyncClient) super.init();
     }

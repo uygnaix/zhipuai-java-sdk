@@ -12,6 +12,7 @@ import com.bihuo.chatglm.sseinvoke.listener.ConsoleStreamListener;
 import com.bihuo.chatglm.vo.Prompt;
 import org.junit.Before;
 import org.junit.Test;
+import reactor.netty.tcp.TcpClient;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,7 +40,7 @@ public class SseInvokeTest {
 
         Prompt prompt = Prompt.builder()
                 .role(Prompt.PromptRole.USER)
-                .content("写一篇超过1000字的关于方便面的作文，带上一些emoji。")
+                .content("写一篇小于100字的关于方便面的作文，带上一些emoji。")
                 .build();
         List<Prompt> prompts = Collections.singletonList(prompt);
         SseInvokeReqVO reqVO = SseInvokeReqVO.builder()

@@ -26,8 +26,6 @@ import java.util.concurrent.TimeUnit;
 @Getter
 @Setter
 @SuperBuilder
-@AllArgsConstructor
-@NoArgsConstructor
 public class ChatBaseClient {
     /**
      * 编码集

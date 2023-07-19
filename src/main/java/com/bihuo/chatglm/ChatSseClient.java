@@ -26,7 +26,8 @@ import okhttp3.sse.EventSources;
 
 
 /**
- * Zhipu AI 的异步调用
+ * Zhipu AI 的SSE调用
+ * finish中由于OKHttp3的原因缺少Meta数据
  *
  * @author Grok42
  */
@@ -34,11 +35,8 @@ import okhttp3.sse.EventSources;
 @Getter
 @Setter
 @SuperBuilder
-@AllArgsConstructor
-@NoArgsConstructor
 public class ChatSseClient extends ChatBaseClient{
 
-    private String test;
     public ChatSseClient init() {
         return (ChatSseClient) super.init();
     }
@@ -67,12 +65,5 @@ public class ChatSseClient extends ChatBaseClient{
         } catch (Exception e) {
             throw ChatException.API_REQUEST_ERROR.withException(e);
         }
-    }
-
-    public AsyncQueryRespVO query(String taskId){
-        // 请求地址
-        String url = Api.model(getModel(), Api.API_ASYNC_INVOKE) + '/' + taskId;
-        String resp =  get(url);
-        return JSONUtil.toBean(resp, AsyncQueryRespVO.class);
     }
 }

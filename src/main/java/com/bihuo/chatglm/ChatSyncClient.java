@@ -21,11 +21,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @SuperBuilder
-@AllArgsConstructor
-@NoArgsConstructor
 public class ChatSyncClient extends ChatBaseClient{
-
-    private String test;
     public ChatSyncClient init() {
         return (ChatSyncClient) super.init();
     }
